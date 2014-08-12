@@ -13,7 +13,7 @@ namespace MC_loader
     {
         internal static PROCESSORState X;//系统类型
         internal static string LauncherPath = @"\versions\" + "1.6.4-Forge9.11.1.965" + @"\";
-        internal static string syspath = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles).Replace("\\","\\");
+        internal static string syspath = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles)+"\\";
         //获取系统路径
         public string getSystemVersion()
         {

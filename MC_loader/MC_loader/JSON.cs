@@ -19,7 +19,7 @@ namespace MC_loader
         {
             StringBuilder str = new StringBuilder();
             str.Append("");
-            string path = System.Environment.CurrentDirectory + "\\1.6.4-Forge9.11.1.965.json";
+            string path = System.Environment.CurrentDirectory + "\\.minecraft\\versions\\1.6.4-Forge9.11.1.965\\1.6.4-Forge9.11.1.965.json";
             FileStream fs = new FileStream(path, FileMode.Open);
             StreamReader m_streamReader = new StreamReader(fs);
             str.Append(m_streamReader.ReadToEnd());
@@ -77,13 +77,13 @@ namespace MC_loader
 
                         if (temp != "")
                         {
-                            string fileTemp = "\\libraries\\" + temp;
-                            ArrayList AL = new ArrayList(GetAllFiles(".minecraft"+fileTemp));
+                            string fileTemp = ".minecraft\\libraries\\" + temp;
+                            ArrayList AL = new ArrayList(GetAllFiles(fileTemp));
                             foreach (Object obj in AL)
                             {
                                 if(obj.ToString()!="")
                                 {
-                                    lib += "." + fileTemp + obj.ToString() + ";";
+                                    lib +=fileTemp + obj.ToString() + ";";
                                     //把数据填入Lib
                                 }
                                 
