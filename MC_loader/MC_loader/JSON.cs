@@ -32,7 +32,43 @@ namespace MC_loader
             JsonReader readerjson = new JsonTextReader(new StringReader(str));
             while(readerjson.Read())
             {
-                Console.WriteLine(readerjson.Value);
+                //获取目录
+                if (readerjson.TokenType.ToString() == "PropertyName" && readerjson.Value.ToString() == "name")
+                {
+                    string path = readerjson.ReadAsString();
+                    string temp="";
+                    bool aa = false;
+                    foreach (char a in path)
+                    {
+                        if(a==':')
+                        {
+                            //判断是不是读到了带冒号部分
+                            //如果是就设置为true
+                            temp += '\\';
+                            aa = true;
+                        }
+                        else if(aa)
+                        {
+                            //读取到冒号后的处理方法
+                            temp += a;
+                        }
+                        else
+                        {
+                            //没有读取到的方法
+                            if(a=='.')
+                            {
+                                temp+='\\';
+                            }
+                            else
+                            {
+                                temp += a;
+                            }
+                        }
+                    }
+                    temp += '\\';
+                    Console.WriteLine(temp);
+                }
+                
             }
 
         }
