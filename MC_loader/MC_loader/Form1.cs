@@ -24,7 +24,10 @@ namespace MC_loader
             string gameName = textBox1.Text;
             string memory = textBox2.Text;
             JSON js = new JSON();
-            js.aaaaaaaa();
+            js.readJSON();
+            string lib = js.lib;//lib的命令导入
+            gameLauncher gl = new gameLauncher();
+            gl.StartGame(lib, 1024, "xJoker");
           
         }
 
